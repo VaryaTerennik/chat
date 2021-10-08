@@ -22,7 +22,7 @@ const onFormSubmit = data => {
             <textarea
                 {...register('text')}>
             </textarea>
-            <button className ="BtnSubmitMessage" disabled = {''}></button>
+            <button className ="BtnSubmitMessage">Отправить</button>
         </div>
         </div>
         </form>
