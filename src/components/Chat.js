@@ -1,8 +1,14 @@
 import React from 'react';
+// import { useState } from "react"
+import MessagesList from './MessagesList.js';
+
 function Chat() {
+   
    return (
-       <div>
-           
+       <div className="Chat">
+          
+            <MessagesList/>
+         
        </div>
    );
 };

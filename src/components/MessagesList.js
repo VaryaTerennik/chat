@@ -1,41 +1,34 @@
 import { useState } from "react"
 import TextInput from './TextInput.js'
+// import PropTypes from 'prop-types'
 // import useToogle from'../hooks/useToogle.js';
 
 
 function MessageList() {
-    const [newMessages, setNewMessages] = useState([])
-    const [texts, setText] = useState([])
-    const [names, setName] = useState([])
-
-
-    const handleAddMassedge = ({name, text}) => {
+    
+    const [newMessages, setNewMessages] = useState([]);
+    
+    const handleAddMessage = ({name, text}) => {
         const newMessage = {
-            name,
-            text
+            name: name,
+            text: text,
         }
-        setName([...names, newMessage.name]);
-        setText([...texts, newMessage.text]);
-        setNewMessages([newMessages.push(newMessage)])
-        console.log(newMessages);
+        setNewMessages([...newMessages, newMessage])
     };
-
+    
     return (
-        <div className="MassageList">
-        Чат
-        <div>
-            {names.map(name => (
+        <div className="MessagesContent">
+        
+        <div className="MessagesList">
+        <div className="TitleChat">Чат</div>
+            {newMessages.map(el => (
                 <div>
-                {name}
+                    <small>{el.name}</small>
+                    <p>{el.text}</p>
                 </div>
             ))}
-            {texts.map(message => (
-                <div>
-                {message}
-                </div>
-            ))}
-            <TextInput onSubmit = {handleAddMassedge}/>
             </div>
+            <TextInput onSubmit = {handleAddMessage}/>
         </div>
 
     )

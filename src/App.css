@@ -1,6 +1,253 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(163, 235, 235);
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkgray;
 }
+
+.UsersList {
+  position: relative;
+  width: 20%;
+  height: 600px;
+  margin: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: #fed6e3;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+}
+
+.Chat {
+  width: 55%;
+}
+
+.UserDetail {
+  width: 20%;
+  height: 600px;
+  margin: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: #a8edea;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+}
+
+.MessagesContent {
+  width: 100%;
+  height: 600px;
+}
+
+.MessagesList {
+  width: 100%;
+  height: 350px;
+  margin-top: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #a8edea, #fed6e3);
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+}
+
+.MessageInfo {
+    margin-top: 20px;
+    height: 200px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #a8edea, #fed6e3);
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+    box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+}
+
+.MessageInfoName input, select {
+    width: 300px;
+    height: 30px;
+    margin: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkgray;
+}
+
+.MessageInfoName {
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkgray;
+}
+
+.MessageInfoText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MessageInfoText textarea {
+  width: 400px;
+  height: 120px;
+  margin: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkgray;
+}
+
+.BtnSubmitMessage {
+  border: 1px solid white;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  height: 50px;
+  width: 60px;
+  font-weight: 700;
+  font-size: 20px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  background: rgb(163, 235, 235) url(https://c1.klipartz.com/pngpicture/210/957/sticker-png-contact-us-icon-send-icon-logo-triangle-symbol-blackandwhite-thumbnail.png) no-repeat ;
+  background-size: cover;
+}
+
+.BtnAddUser {
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  height: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  background: #d6b6c0;
+  
+}
+
+.TitleChat {
+  margin: auto;
+  margin-top: 0px;
+  border-bottom: 1px solid white;
+  background-color: #a8edea;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  color: white;
+  height: 30px;
+  width: 100%;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+}
+
+.RegistrationBlock {
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkgray;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(196, 193, 193, 0.6);
+  left: 0;
+  top: 0;
+}
+
+.RegistrationForm {
+  border-bottom: 1px solid white;
+  background: linear-gradient(-45deg, #a8edea, #fed6e3);
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  border-radius: 5px;
+  position: relative;
+  padding-top: 20px;
+  margin: auto;
+  top: 100px;
+  width: 60%;
+  height: 450px;
+}
+
+.BtnRegistration {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  height: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  background: #d6b6c0;
+  margin: auto;
+  border: 1px solid white;
+  width: 150px;
+}
+
+.BtnUserName {
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  height: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(124, 128, 131, 0.2);
+  background: #a1d8d5;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  border: 1px solid white;
+  width: 80%;
+}
+
+.UsersList .BtnAddUser {
+  cursor: pointer;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid white;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+.UserInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.UserInfo input, select, option {
+  width: 300px;
+  height: 30px;
+  margin: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: darkgray;
+  text-align: start;
+}
+
+.UserInfo label {
+  width: 100px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.UserInfo select {
+    height: 34px;
+    width: 304px;
+}
+
 
 
 
