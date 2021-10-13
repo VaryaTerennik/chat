@@ -4,14 +4,18 @@ import { useState } from "react"
 import useToggle from '../hooks/useToggle'
 import RegistrationForm from './RegistrationForm.js'
 import PropTypes from 'prop-types'
+import { useSelector, useDispatch } from 'react-redux'
+import { addNewUsers } from '../redux/UsersListSlice'
 
 function Users(props) {
+
 //     const [show, setShow] = useState(false);
 //    const handleShow = () => setShow(false);
-
-    const [newUsers, setNewUsers] = useState([]);
+    const userslist = useSelector((state) => state.userslist.value)
+    // const [newUsers, setNewUsers] = useState([]);
     const [visible, toggle] = useToggle(false)
     const [count, setCount] = useState(0);
+    const dispatch = useDispatch()
 
     const handleCount = (increment) => {
         setCount(count + increment);
@@ -26,15 +30,16 @@ function Users(props) {
             gender: gender, 
             interests: interests
         }
-        setNewUsers([...newUsers, newUser]);
+        // setNewUsers([...newUsers, newUser]);
         handleCount(1)
+        dispatch(addNewUsers(newUser))
     };
 
      const handleShowUserDetail = (event) => {
         event.preventDefault()
         const SelectUser = event.currentTarget
         let sId = Number(SelectUser.getAttribute("id"))
-        let InfoSelectUser = newUsers.find(function(elem){
+        let InfoSelectUser = userslist.find(function(elem){
             return elem.id === sId;
         })
         props.updateData(InfoSelectUser);
@@ -42,7 +47,7 @@ function Users(props) {
 
    return (
        <div className="UsersList">
-           {newUsers.map(el => (
+           {userslist.map(el => (
                 <div>
                     <button onClick={handleShowUserDetail} id={el.id} className="BtnUserName">{el.name} {el.surname}</button>
                 </div>

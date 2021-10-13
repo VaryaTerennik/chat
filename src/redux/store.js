@@ -1,17 +1,12 @@
-import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit'
+import userslistsliceReducer from './UsersListSlice'
+import messageslistsliceReducer from './MessagesListSlice'
 
-const initialState = {
-    users: [],
-}
+const store = configureStore({
+    reducer: {
+      userslist: userslistsliceReducer,
+      messageslist: messageslistsliceReducer
+    },
+  })
 
-const reducer = (state = initialState, action) => {
-    switch(action.type) {
-
-        default:
-            return state
-    }
-}
-
-const store = createStore(reducer)
-
-export default store;
+export default store
