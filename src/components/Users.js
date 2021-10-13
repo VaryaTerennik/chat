@@ -17,13 +17,13 @@ function Users(props) {
     const [count, setCount] = useState(0);
     const dispatch = useDispatch()
 
-    const handleCount = (increment) => {
-        setCount(count + increment);
-    }
+    // const handleCount = (increment) => {
+    //     setCount(count + increment);
+    // }
     
     const handleAddUser = ({name, surname, age, gender, interests}) => {
         const newUser = {
-            id: count,
+            // id: count,
             name: name,
             surname: surname, 
             age: age, 
@@ -31,7 +31,7 @@ function Users(props) {
             interests: interests
         }
         // setNewUsers([...newUsers, newUser]);
-        handleCount(1)
+        // handleCount(1)
         dispatch(addNewUsers(newUser))
     };
 
