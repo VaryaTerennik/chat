@@ -6,15 +6,18 @@ import RegistrationForm from './RegistrationForm.js'
 import PropTypes from 'prop-types'
 import { useSelector, useDispatch } from 'react-redux'
 import { addNewUsers } from '../redux/UsersListSlice'
+import { NavLink, useParams } from "react-router-dom";
 
 function Users(props) {
 
 //     const [show, setShow] = useState(false);
 //    const handleShow = () => setShow(false);
+    const { userId } = useParams()
+    console.log(userId)
     const userslist = useSelector((state) => state.userslist.value)
     // const [newUsers, setNewUsers] = useState([]);
     const [visible, toggle] = useToggle(false)
-    const [count, setCount] = useState(0);
+    // const [count, setCount] = useState(0);
     const dispatch = useDispatch()
 
     // const handleCount = (increment) => {
@@ -35,21 +38,27 @@ function Users(props) {
         dispatch(addNewUsers(newUser))
     };
 
-     const handleShowUserDetail = (event) => {
-        event.preventDefault()
-        const SelectUser = event.currentTarget
-        let sId = Number(SelectUser.getAttribute("id"))
-        let InfoSelectUser = userslist.find(function(elem){
-            return elem.id === sId;
-        })
-        props.updateData(InfoSelectUser);
-    }
+    //  const handleShowUserDetail = (event) => {
+    //     event.preventDefault()
+    //     const SelectUser = event.currentTarget
+    //     let sId = Number(SelectUser.getAttribute("id"))
+    //     let InfoSelectUser = userslist.find(function(elem){
+    //         return elem.id === sId;
+    //     })
+    //     props.updateData(InfoSelectUser);
+    // }
 
    return (
        <div className="UsersList">
            {userslist.map(el => (
                 <div>
-                    <button onClick={handleShowUserDetail} id={el.id} className="BtnUserName">{el.name} {el.surname}</button>
+                    <button id={el.id} className="BtnUserName">
+                        <NavLink className = "App-link" 
+                                    activeClassName = "App-link-active" 
+                                    to={`/users/${el.id}`}>
+                            {el.name} {el.surname}
+                        </NavLink>
+                    </button>
                 </div>
             ))}
             

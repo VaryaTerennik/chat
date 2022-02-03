@@ -1,19 +1,26 @@
 import { useState } from "react"
 import TextInput from './TextInput.js'
-// import PropTypes from 'prop-types'
-// import useToogle from'../hooks/useToogle.js';
+import { useSelector, useDispatch } from 'react-redux'
+import { addMessage } from '../redux/MessagesListSlice'
+import { messageChatSelector } from '../redux/MessagesListSlice'
 
 
-function MessageList() {
+function MessageList({userId}) {
+
+    const messages = useSelector(messageChatSelector(userId))
+    console.log(userId)
+    const dispatch = useDispatch()
     
-    const [newMessages, setNewMessages] = useState([]);
+    // const [newMessages, setNewMessages] = useState([]);
     
-    const handleAddMessage = ({name, text}) => {
-        const newMessage = {
-            name: name,
-            text: text,
-        }
-        setNewMessages([...newMessages, newMessage])
+    const handleAddMessage = (data) => {
+        // const newMessage = {
+        //     name: name,
+        //     text: text,
+        // }
+        // setNewMessages([...newMessages, newMessage])
+
+        dispatch(addMessage({userId, text: data.text}))
     };
     
     return (
@@ -21,10 +28,9 @@ function MessageList() {
         
         <div className="MessagesList">
         <div className="TitleChat">Чат</div>
-            {newMessages.map(el => (
-                <div>
-                    <small>{el.name}</small>
-                    <p>{el.text}</p>
+            {messages.map(el => (
+                <div key={el.id}>
+                    {el.text}
                 </div>
             ))}
             </div>

@@ -13,18 +13,18 @@ export const  MessagesListSlice = createSlice({
   initialState,
   reducers: {
     addMessage: (state, action) => {
-        const {chatId, text} = action.payload
-        const messages = state.chats[chatId]?.messages || []
+        const {userId, text} = action.payload
+        const messages = state.chats[userId]?.messages || []
         const newMessage = {
           id: messages.length, 
           text: text
         }
-        if(!state.chats[chatId]) {
-            state.chats[chatId] = {
+        if(!state.chats[userId]) {
+            state.chats[userId] = {
                 messages: [newMessage]
             }
         } else {
-        state.chats[chatId].messages = [...messages, newMessage]
+        state.chats[userId].messages = [...messages, newMessage]
         }
       },  
   },
@@ -33,6 +33,6 @@ export const  MessagesListSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { addMessage } = MessagesListSlice.actions
 
-export const messageChatSelector = chatId => state => (state.messageslist.chats[chatId]?.messages || [])
+export const messageChatSelector = userId => state => (state.messageslist.chats[userId]?.messages || [])
 
 export default MessagesListSlice.reducer

@@ -6,7 +6,7 @@ const initialState = {
         id: 0,
         name: 'Ваня',
         surname: "", 
-        age: "", 
+        age: "25", 
         gender: "", 
         interests: ""
     },
@@ -14,7 +14,7 @@ const initialState = {
         id: 1,
         name: 'Саша',
         surname: "", 
-        age: "", 
+        age: "31", 
         gender: "", 
         interests: ""
     },
